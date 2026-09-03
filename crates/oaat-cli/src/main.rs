@@ -394,7 +394,7 @@ async fn run_endpoint(
     let capabilities = EndpointCapabilities {
         pcm_max_rate: caps_config.pcm_max_rate,
         pcm_max_bits: caps_config.pcm_max_bits,
-        dsd_max_rate: if enable_dsd { Some(64) } else { None },
+        dsd_max_rate: if enable_dsd { Some(512) } else { None },
         channels_max: caps_config.channels_max,
         formats,
         volume: None,
@@ -406,7 +406,7 @@ async fn run_endpoint(
     let mdns_caps = oaat_core::capability::Capabilities {
         pcm_max_rate_khz: caps_config.pcm_max_rate / 1000,
         pcm_max_bits: caps_config.pcm_max_bits,
-        dsd_max_multiplier: if enable_dsd { Some(64) } else { None },
+        dsd_max_multiplier: if enable_dsd { Some(512) } else { None },
         flac: caps_config.flac,
         opus: false,
         truehd: false,
